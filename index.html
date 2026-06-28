@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מילואומניקים 360 — כל הזכויות, התגמולים והמענקים שלך במקום אחד</title>
+<meta name="description" content="מחשבון מענקי מילואים 2026, מדריך זכאות והפניה לערוצים הרשמיים. תגמול מיוחד, מענק לידה, מעבר דירה, ארנק דיגיטלי ועוד.">
+<style>
+  :root{
+    --green:#3a4a2f; --green-2:#54683f; --olive:#6b7d4a;
+    --gold:#c9a24b; --gold-2:#e0bd6a;
+    --bg:#f5f5f0; --card:#ffffff; --ink:#23291c; --muted:#6b6f63;
+    --ok:#2e7d4f; --no:#b34a3f; --line:#e4e2d6;
+    --shadow:0 6px 24px rgba(40,48,28,.10);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI",Arial,"Heebo",sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  a{color:var(--green-2)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+
+  /* Header / Hero */
+  header{background:linear-gradient(135deg,var(--green) 0%,var(--green-2) 60%,var(--olive) 100%);color:#fff;position:relative;overflow:hidden}
+  header::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(circle at 85% 20%,rgba(201,162,75,.25),transparent 45%),
+    radial-gradient(circle at 10% 90%,rgba(255,255,255,.08),transparent 40%)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;position:relative;z-index:2}
+  .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.35rem;letter-spacing:.3px}
+  .logo .badge{width:42px;height:42px;border-radius:12px;background:var(--gold);display:grid;place-items:center;color:var(--green);font-weight:900;font-size:1rem;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+  .hero{position:relative;z-index:2;padding:46px 0 70px;text-align:center}
+  .hero h1{font-size:2.5rem;line-height:1.2;margin-bottom:14px;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+  .hero h1 span{color:var(--gold-2)}
+  .hero p{font-size:1.18rem;max-width:640px;margin:0 auto 26px;opacity:.95}
+  .cta{display:inline-block;background:var(--gold);color:var(--green);font-weight:800;padding:15px 34px;border-radius:50px;text-decoration:none;font-size:1.1rem;box-shadow:0 8px 22px rgba(201,162,75,.4);transition:transform .15s,box-shadow .15s}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(201,162,75,.5)}
+  .wave{display:block;width:100%;height:40px}
+
+  /* Sections */
+  section{padding:46px 0}
+  .sec-title{text-align:center;font-size:1.8rem;margin-bottom:8px;color:var(--green)}
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:34px}
+
+  /* Calculator */
+  .calc{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px;border:1px solid var(--line)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .field label{display:block;font-weight:700;margin-bottom:7px;font-size:.95rem}
+  .field input,.field select{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:1rem;background:#fcfcf9;font-family:inherit;transition:border-color .15s}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--olive)}
+  .hint{font-size:.8rem;color:var(--muted);margin-top:4px}
+  .calc-btn{margin-top:24px;width:100%;background:var(--green);color:#fff;border:none;padding:16px;border-radius:14px;font-size:1.15rem;font-weight:800;cursor:pointer;transition:background .15s}
+  .calc-btn:hover{background:var(--green-2)}
+
+  /* Results */
+  #results{margin-top:26px;display:none}
+  .res-total{background:linear-gradient(135deg,var(--green),var(--olive));color:#fff;border-radius:16px;padding:24px;text-align:center;margin-bottom:18px}
+  .res-total .num{font-size:2.6rem;font-weight:900;color:var(--gold-2);display:block;line-height:1.1}
+  .res-total small{opacity:.85;display:block;margin-top:6px;font-size:.85rem}
+  .res-line{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:#fcfcf9}
+  .res-line .ic{font-size:1.3rem;line-height:1}
+  .res-line.ok{border-color:#bfe0cc;background:#f1fbf5}
+  .res-line.no{border-color:#eccfc9;background:#fdf4f2;opacity:.75}
+  .res-line .body{flex:1}
+  .res-line .name{font-weight:700}
+  .res-line .amt{font-weight:800;color:var(--green)}
+  .res-line .why{font-size:.85rem;color:var(--muted)}
+  .res-line .src{font-size:.75rem;color:var(--muted);margin-top:3px}
+  .res-line .src a{color:var(--olive)}
+
+  /* Grants cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .gcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);transition:transform .15s}
+  .gcard:hover{transform:translateY(-4px)}
+  .gcard h3{color:var(--green);font-size:1.15rem;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .gcard .tag{display:inline-block;background:var(--gold);color:var(--green);font-weight:800;font-size:.95rem;padding:3px 12px;border-radius:30px;margin-bottom:10px}
+  .gcard ul{list-style:none;font-size:.9rem;color:var(--muted)}
+  .gcard li{padding:3px 0;padding-right:18px;position:relative}
+  .gcard li::before{content:"◂";position:absolute;right:0;color:var(--gold)}
+
+  /* Sources */
+  .src-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .src-card{display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);transition:transform .15s,border-color .15s}
+  .src-card:hover{transform:translateY(-3px);border-color:var(--gold)}
+  .src-card .ic{font-size:1.6rem}
+  .src-card .t{font-weight:700}
+  .src-card .d{font-size:.82rem;color:var(--muted)}
+
+  /* Disclaimer / Footer */
+  .disclaimer{background:#fff8e8;border:1px solid var(--gold);border-radius:14px;padding:18px 20px;font-size:.9rem;color:#6b5a2a;margin-top:30px;display:flex;gap:12px;align-items:flex-start}
+  footer{background:var(--green);color:#cfd6c2;text-align:center;padding:30px 18px;font-size:.85rem}
+  footer .verified{color:var(--gold-2);font-weight:700}
+  @media(max-width:600px){.hero h1{font-size:1.9rem}.hero p{font-size:1.05rem}.sec-title{font-size:1.5rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav class="nav">
+      <div class="logo"><span class="badge">360</span> מילואומניקים</div>
+      <a href="#calc" style="color:#fff;text-decoration:none;font-weight:700;opacity:.9">המחשבון ↓</a>
+    </nav>
+    <div class="hero">
+      <h1>כל הזכויות, התגמולים <br>והמענקים שלך — <span>במקום אחד</span></h1>
+      <p>מחשבון מענקי מילואים 2026, בדיקת זכאות מיידית והפניה ישירה לערוצים הרשמיים. כי מגיע לך לדעת בדיוק מה מגיע לך.</p>
+      <a href="#calc" class="cta">בדוק כמה מגיע לי ›</a>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none"><path fill="#f5f5f0" d="M0,40 L0,16 C240,32 480,4 720,12 C960,20 1200,36 1440,18 L1440,40 Z"></path></svg>
+</header>
+
+<!-- CALCULATOR -->
+<section id="calc">
+  <div class="wrap">
+    <h2 class="sec-title">מחשבון אומדן מענקים — 2026</h2>
+    <p class="sec-sub">מלא את הפרטים וקבל פירוט אומדן תוך שניות. הכל רץ במכשיר שלך — שום נתון לא נשלח לאף מקום.</p>
+    <div class="calc">
+      <div class="grid">
+        <div class="field">
+          <label for="days">מספר ימי שמ"פ בשנה</label>
+          <input type="number" id="days" min="0" max="365" value="60" inputmode="numeric">
+          <div class="hint">סך ימי המילואים הפעילים שביצעת בשנת 2026</div>
+        </div>
+        <div class="field">
+          <label for="rank">מדרג</label>
+          <select id="rank">
+            <option value="A+">א'+ (לוחם/תומך לחימה מובהק)</option>
+            <option value="A" selected>א'</option>
+            <option value="B">ב'</option>
+            <option value="C">ג' / אחר</option>
+          </select>
+          <div class="hint">משפיע על זכאות למענק מעבר דירה</div>
+        </div>
+        <div class="field">
+          <label for="children">ילדים עד גיל 14</label>
+          <input type="number" id="children" min="0" max="20" value="0" inputmode="numeric">
+          <div class="hint">לצורך מענק משפחה מוגדל</div>
+        </div>
+        <div class="field">
+          <label for="spouse">בן/בת זוג בחל"ת (21+ יום)?</label>
+          <select id="spouse"><option value="0">לא</option><option value="1">כן</option></select>
+          <div class="hint">לצורך מענק חופשת לידה</div>
+        </div>
+        <div class="field">
+          <label for="moved">עברת דירה השנה?</label>
+          <select id="moved"><option value="0">לא</option><option value="1">כן</option></select>
+        </div>
+        <div class="field">
+          <label for="status">סטטוס תעסוקתי</label>
+          <select id="status">
+            <option value="employee">שכיר</option>
+            <option value="self">עצמאי</option>
+            <option value="student">סטודנט</option>
+            <option value="none">מובטל/אחר</option>
+          </select>
+        </div>
+      </div>
+      <button class="calc-btn" onclick="calculate()">חשב לי את האומדן ›</button>
+
+      <div id="results"></div>
+    </div>
+  </div>
+</section>
+
+<!-- GRANTS OVERVIEW -->
+<section style="background:#eef0e6">
+  <div class="wrap">
+    <h2 class="sec-title">המענקים וההטבות העיקריים</h2>
+    <p class="sec-sub">סקירה של עיקרי הזכאויות לשנת 2026 — לפי היקף השירות והמצב האישי</p>
+    <div class="cards" id="grantCards"></div>
+  </div>
+</section>
+
+<!-- OFFICIAL SOURCES -->
+<section>
+  <div class="wrap">
+    <h2 class="sec-title">הגשה וערוצים רשמיים</h2>
+    <p class="sec-sub">כל הקישורים מובילים לגורמים הרשמיים בלבד — צה"ל, ביטוח לאומי וקרן הסיוע</p>
+    <div class="src-grid">
+      <a class="src-card" href="https://www.miluim.idf.il/calculator" target="_blank" rel="noopener">
+        <span class="ic">🧮</span><span><span class="t">מחשבון חרבות ברזל הרשמי</span><span class="d">אימות מדויק מול צה"ל</span></span></a>
+      <a class="src-card" href="https://www.miluim.idf.il/articles-list/קרן-הסיוע-למשרתי-המילואים" target="_blank" rel="noopener">
+        <span class="ic">🤝</span><span><span class="t">קרן הסיוע למשרתי המילואים</span><span class="d">מענקים מיוחדים ומצוקה כלכלית</span></span></a>
+      <a class="src-card" href="https://www.btl.gov.il/HaravotBarzel1/KizbeotHB/MiloeimHB/Pages/MsrtimMiloeim.aspx" target="_blank" rel="noopener">
+        <span class="ic">🏛️</span><span><span class="t">ביטוח לאומי — מילואים</span><span class="d">תגמול, זכאות והגשת תביעה</span></span></a>
+      <a class="src-card" href="https://www.miluim.idf.il/articles-list/מדיניות-2026/" target="_blank" rel="noopener">
+        <span class="ic">📋</span><span><span class="t">מדיניות תגמולים 2026</span><span class="d">המדריך הרשמי המלא</span></span></a>
+      <a class="src-card" href="https://mod.gov.il" target="_blank" rel="noopener">
+        <span class="ic">🛡️</span><span><span class="t">מעטפת משרד הביטחון</span><span class="d">הטבות נוספות ומימוש</span></span></a>
+      <a class="src-card" href="https://www.kolzchut.org.il/he/תגמול_מיוחד_לחיילי_מילואים" target="_blank" rel="noopener">
+        <span class="ic">📚</span><span><span class="t">כל-זכות</span><span class="d">הסבר זכויות בשפה נגישה</span></span></a>
+    </div>
+
+    <div class="disclaimer">
+      <span style="font-size:1.4rem">⚠️</span>
+      <div><strong>שימו לב:</strong> הסכומים והתנאים באתר זה הם <strong>אומדן בלבד</strong> ונכונים לתאריך העדכון למטה. הזכאות והסכומים הסופיים נקבעים אך ורק ע"י צה"ל, המוסד לביטוח לאומי וקרן הסיוע. מומלץ תמיד לאמת במחשבון הרשמי ולהגיש דרך הערוצים הרשמיים.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <strong style="color:#fff;font-size:1.05rem">מילואומניקים 360</strong> — מיצוי זכויות למשרתי המילואים<br>
+    הנתונים עודכנו לאחרונה: <span class="verified" id="lastVerified">28.06.2026</span> · אומדן בלבד, אינו מהווה ייעוץ או התחייבות<br>
+    <span style="opacity:.7;font-size:.8rem">תודה על השירות 🇮🇱</span>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   מקור-אמת — תואם ל-data/grants-2026.json של הסקיל miluim-grants-il
+   עדכן כאן בלבד. כל מספר נושא הפניה למקור.
+   ============================================================ */
+const DATA = {
+  year: 2026,
+  currency: "₪",
+  last_verified: "2026-06-28",
+  special_tagmul: {
+    rule_main:      { from_day: 61, per_day: 133.33 },
+    rule_alt_46plus:{ from_day: 46, per_day: 70, max_total: 5000 },
+    source: "miluim.idf.il — מדיניות 2026",
+    url: "https://www.miluim.idf.il/articles-list/מדיניות-2026/"
+  },
+  grants: [
+    { id:"digital_wallet", name:"הטבות ארנק דיגיטלי", tag:"סכום משתנה",
+      amount:null, note:"אגרות/היטלים למדינה, פנאי ורווחה למשרת ומשפחתו",
+      cond:{min_days:10}, condText:["10+ ימי שירות בשנה","כל סוג צו"],
+      source:"miluim.idf.il — מדיניות 2026", url:"https://www.miluim.idf.il/articles-list/מדיניות-2026/" },
+    { id:"family_enlarged", name:"מענק משפחה מוגדל", tag:"מדורג",
+      amount:null, note:"סכום מדורג — לאימות מול קרן הסיוע",
+      cond:{min_days:40, needChild:true}, condText:["40+ ימי שמ\"פ","ילד עד גיל 14"],
+      source:"miluim.idf.il / קרן הסיוע", url:"https://www.miluim.idf.il/articles-list/קרן-הסיוע-למשרתי-המילואים" },
+    { id:"birth_leave", name:"מענק חופשת לידה", tag:"עד 10,700 ₪",
+      amount:10700, per:"לידה", note:"עבור כל לידה בשנת 2026",
+      cond:{min_days:45, needSpouse:true}, condText:["45+ ימי שמ\"פ","בן/בת זוג בחל\"ת 21+ יום"],
+      source:"miluim.idf.il — מדיניות 2026", url:"https://www.miluim.idf.il/articles-list/מדיניות-2026/" },
+    { id:"moving_home", name:"השתתפות במעבר דירה", tag:"2,500 ₪",
+      amount:2500, note:"השתתפות חד-פעמית בעלויות",
+      cond:{min_days:45, ranks:["A+","A","B"], needMoved:true}, condText:["45+ ימי שמ\"פ","מדרגים א'+ / א' / ב'","מעבר דירה בפועל"],
+      source:"miluim.idf.il — מדיניות 2026", url:"https://www.miluim.idf.il/articles-list/מדיניות-2026/" }
+  ]
+};
+
+/* ---- לוגיקת חישוב (משכפלת את scripts/calc.py) ---- */
+function calcSpecial(days){
+  const st=DATA.special_tagmul, opts=[];
+  if(days>=st.rule_main.from_day){
+    const d=days-st.rule_main.from_day+1;
+    opts.push({label:`מסלול עיקרי (מהיום ה-${st.rule_main.from_day})`, amount:d*st.rule_main.per_day, days:d});
+  }
+  if(days>=st.rule_alt_46plus.from_day){
+    const d=days-st.rule_alt_46plus.from_day+1;
+    opts.push({label:`מסלול 46+ (עד ${st.rule_alt_46plus.max_total.toLocaleString()} ₪)`, amount:Math.min(d*st.rule_alt_46plus.per_day, st.rule_alt_46plus.max_total), days:d});
+  }
+  if(!opts.length) return null;
+  return opts.reduce((a,b)=>b.amount>a.amount?b:a);
+}
+
+function evalGrant(g, inp){
+  const c=g.cond, reasons=[];
+  if(c.min_days && inp.days<c.min_days) reasons.push(`נדרשים ${c.min_days} ימים לפחות`);
+  if(c.ranks && !c.ranks.includes(inp.rank)) reasons.push(`מוגבל למדרגים ${c.ranks.join("/")}`);
+  if(c.needChild && inp.children<=0) reasons.push("נדרש ילד עד גיל 14");
+  if(c.needSpouse && !inp.spouse) reasons.push("דורש בן/בת זוג בחל\"ת");
+  if(c.needMoved && !inp.moved) reasons.push("דורש מעבר דירה בפועל");
+  return {eligible:reasons.length===0, reasons};
+}
+
+function fmt(n){return Math.round(n).toLocaleString("he-IL");}
+
+function calculate(){
+  const inp={
+    days:+document.getElementById("days").value||0,
+    rank:document.getElementById("rank").value,
+    children:+document.getElementById("children").value||0,
+    spouse:document.getElementById("spouse").value==="1",
+    moved:document.getElementById("moved").value==="1",
+    status:document.getElementById("status").value
+  };
+  const special=calcSpecial(inp.days);
+  let numericTotal=special?special.amount:0;
+  let html=`<div class="res-total"><span class="num">~${fmt(numericTotal)} ₪</span>
+    <small>אומדן מספרי בסיסי (תגמול מיוחד) — לפני מענקים בסכום משתנה ותגמול יומי מבוסס-שכר</small></div>`;
+
+  /* תגמול מיוחד */
+  if(special){
+    html+=`<div class="res-line ok"><span class="ic">💰</span><div class="body">
+      <span class="name">תגמול מיוחד</span> — <span class="amt">~${fmt(special.amount)} ₪</span>
+      <div class="why">${special.label} · בגין ${special.days} ימים זכאים</div>
+      <div class="src">מקור: <a href="${DATA.special_tagmul.url}" target="_blank" rel="noopener">${DATA.special_tagmul.source}</a></div>
+    </div></div>`;
+  } else {
+    html+=`<div class="res-line no"><span class="ic">💰</span><div class="body">
+      <span class="name">תגמול מיוחד</span>
+      <div class="why">לא זכאי — נדרשים ${DATA.special_tagmul.rule_alt_46plus.from_day}+ ימים</div></div></div>`;
+  }
+
+  /* מענקים */
+  DATA.grants.forEach(g=>{
+    const r=evalGrant(g,inp);
+    if(r.eligible && typeof g.amount==="number") numericTotal+=g.amount;
+    const amtTxt = g.amount!=null ? `~${fmt(g.amount)} ₪${g.per?` / ${g.per}`:""}` : g.tag;
+    html+=`<div class="res-line ${r.eligible?'ok':'no'}"><span class="ic">${r.eligible?'✅':'❌'}</span><div class="body">
+      <span class="name">${g.name}</span> — <span class="amt">${amtTxt}</span>
+      ${!r.eligible?`<div class="why">${r.reasons.join(" · ")}</div>`:`<div class="why">${g.note||""}</div>`}
+      ${r.eligible?`<div class="src">מקור: <a href="${g.url}" target="_blank" rel="noopener">${g.source}</a></div>`:""}
+    </div></div>`;
+  });
+
+  /* עדכון סך הכל לאחר מענקים מספריים */
+  html=html.replace(/~[\d,]+ ₪<\/span>\s*<small>/, `~${fmt(numericTotal)} ₪</span><small>`);
+
+  /* התאמת סטטוס תעסוקתי */
+  const statusTips={
+    employee:"כשכיר — המעסיק משלם והחזר התגמול עובר אליו מביטוח לאומי. ודא שדווחת כראוי.",
+    self:"כעצמאי — התגמול משולם ישירות מביטוח לאומי. הגש תביעה תוך 30 יום מתום השירות, ובדוק זכאות לפיצוי נזק עקיף לעסק.",
+    student:"כסטודנט — בדוק מענקי מל\"ג/ות\"ת, פטור משכ\"ל והתאמות אקדמיות בנוסף לתגמול.",
+    none:"בדוק תגמול מינימום מובטח וזכאות לסיוע מקרן הסיוע."
+  };
+  html+=`<div class="disclaimer"><span style="font-size:1.3rem">💡</span><div><strong>לפי הסטטוס שלך:</strong> ${statusTips[inp.status]}</div></div>`;
+
+  const box=document.getElementById("results");
+  box.innerHTML=html; box.style.display="block";
+  box.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+/* ---- רינדור כרטיסי מענקים ---- */
+(function renderCards(){
+  const c=document.getElementById("grantCards");
+  /* תגמול מיוחד ככרטיס פתיח */
+  let cards=[{name:"תגמול מיוחד",tag:"עד 5,000 ₪+",cond:["מהיום ה-61: 133.33 ₪ ליום","או מהיום ה-46: 70 ₪ ליום (עד 5,000 ₪)","כל סוג צו — מבצעי או שגרה"]}];
+  DATA.grants.forEach(g=>cards.push({name:g.name,tag:g.tag,cond:g.condText}));
+  c.innerHTML=cards.map(g=>`<div class="gcard">
+    <span class="tag">${g.tag}</span>
+    <h3>${g.name}</h3>
+    <ul>${g.cond.map(x=>`<li>${x}</li>`).join("")}</ul>
+  </div>`).join("");
+  /* תאריך אימות */
+  const d=DATA.last_verified.split("-");
+  document.getElementById("lastVerified").textContent=`${d[2]}.${d[1]}.${d[0]}`;
+})();
+</script>
+</body>
+</html>
