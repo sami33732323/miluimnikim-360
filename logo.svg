@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" role="img" aria-label="גדסר ישי">
+  <defs>
+    <linearGradient id="pg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a5cb8"/>
+      <stop offset="1" stop-color="#5e3091"/>
+    </linearGradient>
+  </defs>
+  <!-- shield body -->
+  <path d="M30 16 H170 a12 12 0 0 1 12 12 V148 C182 182 146 206 100 228 C54 206 18 182 18 148 V28 a12 12 0 0 1 12 -12 Z" fill="url(#pg)"/>
+  <!-- inner white border -->
+  <path d="M34 26 H166 a6 6 0 0 1 6 6 V147 C172 176 142 197 100 216 C58 197 28 176 28 147 V32 a6 6 0 0 1 6 -6 Z" fill="none" stroke="#fff" stroke-width="3"/>
+  <!-- numbers -->
+  <text x="60" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#fff" text-anchor="middle">18</text>
+  <text x="140" y="94" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#fff" text-anchor="middle">24</text>
+  <!-- sword -->
+  <g fill="#fff">
+    <path d="M100 42 L107 70 L106 150 L94 150 L93 70 Z"/>
+    <rect x="71" y="150" width="58" height="9" rx="2"/>
+    <rect x="95" y="159" width="10" height="26" rx="2"/>
+    <circle cx="100" cy="189" r="4"/>
+  </g>
+  <line x1="100" y1="48" x2="100" y2="149" stroke="#5e3091" stroke-width="2"/>
+  <g stroke="#5e3091" stroke-width="1.6">
+    <line x1="96" y1="165" x2="104" y2="165"/>
+    <line x1="96" y1="170" x2="104" y2="170"/>
+    <line x1="96" y1="175" x2="104" y2="175"/>
+    <line x1="96" y1="180" x2="104" y2="180"/>
+  </g>
+  <!-- wings -->
+  <g fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round">
+    <path d="M100 195 C80 195 64 197 44 205"/>
+    <path d="M100 199 C82 200 68 203 50 211"/>
+    <path d="M100 203 C84 205 72 209 58 216"/>
+    <path d="M100 195 C120 195 136 197 156 205"/>
+    <path d="M100 199 C118 200 132 203 150 211"/>
+    <path d="M100 203 C116 205 128 209 142 216"/>
+  </g>
+</svg>

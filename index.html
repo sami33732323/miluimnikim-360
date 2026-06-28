@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מילואומניקים 360 — כל הזכויות, התגמולים והמענקים שלך במקום אחד</title>
 <meta name="description" content="מחשבון מענקי מילואים 2026, מדריך זכאות והפניה לערוצים הרשמיים. תגמול מיוחד, מענק לידה, מעבר דירה, ארנק דיגיטלי ועוד.">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
 <style>
   :root{
-    --green:#3a4a2f; --green-2:#54683f; --olive:#6b7d4a;
+    --green:#5b2d8e; --green-2:#6f3da6; --olive:#8a5cb8;
     --gold:#c9a24b; --gold-2:#e0bd6a;
     --bg:#f5f5f0; --card:#ffffff; --ink:#23291c; --muted:#6b6f63;
     --ok:#2e7d4f; --no:#b34a3f; --line:#e4e2d6;
@@ -26,7 +27,9 @@
     radial-gradient(circle at 10% 90%,rgba(255,255,255,.08),transparent 40%)}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;position:relative;z-index:2}
   .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:1.35rem;letter-spacing:.3px}
-  .logo .badge{width:42px;height:42px;border-radius:12px;background:var(--gold);display:grid;place-items:center;color:var(--green);font-weight:900;font-size:1rem;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+  .logo .emblem{height:48px;width:auto;filter:drop-shadow(0 3px 8px rgba(0,0,0,.35))}
+  .hero-emblem{height:128px;width:auto;margin-bottom:18px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.3))}
+  .footer-emblem{height:54px;width:auto;margin-bottom:10px;opacity:.95}
   .hero{position:relative;z-index:2;padding:46px 0 70px;text-align:center}
   .hero h1{font-size:2.5rem;line-height:1.2;margin-bottom:14px;text-shadow:0 2px 12px rgba(0,0,0,.18)}
   .hero h1 span{color:var(--gold-2)}
@@ -96,10 +99,11 @@
 <header>
   <div class="wrap">
     <nav class="nav">
-      <div class="logo"><span class="badge">360</span> מילואומניקים</div>
+      <div class="logo"><img class="emblem" src="logo.svg" alt="גדסר ישי"> מילואומניקים 360</div>
       <a href="#calc" style="color:#fff;text-decoration:none;font-weight:700;opacity:.9">המחשבון ↓</a>
     </nav>
     <div class="hero">
+      <img class="hero-emblem" src="logo.svg" alt="גדסר ישי">
       <h1>כל הזכויות, התגמולים <br>והמענקים שלך — <span>במקום אחד</span></h1>
       <p>מחשבון מענקי מילואים 2026, בדיקת זכאות מיידית והפניה ישירה לערוצים הרשמיים. כי מגיע לך לדעת בדיוק מה מגיע לך.</p>
       <a href="#calc" class="cta">בדוק כמה מגיע לי ›</a>
@@ -199,7 +203,9 @@
 
 <footer>
   <div class="wrap">
+    <img class="footer-emblem" src="logo.svg" alt="גדסר ישי"><br>
     <strong style="color:#fff;font-size:1.05rem">מילואומניקים 360</strong> — מיצוי זכויות למשרתי המילואים<br>
+    <span style="opacity:.85">מותאם עבור גדס"ר ישי</span><br>
     הנתונים עודכנו לאחרונה: <span class="verified" id="lastVerified">28.06.2026</span> · אומדן בלבד, אינו מהווה ייעוץ או התחייבות<br>
     <span style="opacity:.7;font-size:.8rem">תודה על השירות 🇮🇱</span>
   </div>
